@@ -121,9 +121,14 @@ if user_input:
 
                     locations.forEach((location) => {{
                       if (location.latitude && location.longitude) {{
-                        const markerScale = 10 + (location.similarity * 20);
+                        // 0.85~0.87 범위를 더 극적인 차이로 변환
+                        
+                        const markerScale = 30 + (location.similarity * 20);
                         const redValue = Math.floor(255 * location.similarity);
                         const greenValue = Math.floor(255 * (1-location.similarity));
+                        // 3. 임계값 기반
+                        const opacity = location.similarity > 0.865 ? 1 : 
+                        location.similarity > 0.88 ? 0.5 : 0.3; 
                         
                         const marker = new google.maps.Marker({{
                           position: {{ lat: location.latitude, lng: location.longitude }},
@@ -133,7 +138,7 @@ if user_input:
                             path: google.maps.SymbolPath.CIRCLE,
                             scale: markerScale,
                             fillColor: 'rgb(' + redValue + ',' + greenValue + ',0)',
-                            fillOpacity: 0.9,
+                            fillOpacity: opacity,
                             strokeWeight: 1,
                             strokeColor: "#000"
                           }}
