@@ -1,6 +1,6 @@
 streamlit==1.40.0
 openai>=1.0.0
-faiss-cpu==1.7.4
+faiss-cpu==1.6.3
 numpy>=1.24.0
 pandas
 requests
