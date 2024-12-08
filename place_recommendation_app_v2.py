@@ -121,14 +121,13 @@ if user_input:
 
                     locations.forEach((location) => {{
                       if (location.latitude && location.longitude) {{
-                        // 0.85~0.87 범위를 더 극적인 차이로 변환
                         
-                        const markerScale = 30 + (location.similarity * 20);
+                        const markerScale =10+(location.similarity * 20);
                         const redValue = Math.floor(255 * location.similarity);
                         const greenValue = Math.floor(255 * (1-location.similarity));
                         // 3. 임계값 기반
-                        const opacity = location.similarity > 0.865 ? 1 : 
-                        location.similarity > 0.88 ? 0.5 : 0.3; 
+                        const opacity = location.similarity > 0.88 ? 1 : 
+                        location.similarity > 0.86 ? 0.5 : 0.15; 
                         
                         const marker = new google.maps.Marker({{
                           position: {{ lat: location.latitude, lng: location.longitude }},
