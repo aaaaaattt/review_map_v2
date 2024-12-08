@@ -127,7 +127,7 @@ if user_input:
                         const greenValue = Math.floor(255 * (1-location.similarity));
                         // 3. 임계값 기반
                         const opacity = location.similarity > 0.88 ? 1 : 
-                        location.similarity > 0.86 ? 0.5 : 0.15; 
+                        location.similarity > 0.87 ? 0.7 : location.similarity > 0.86 ? 0.4 : 0.1; 
                         
                         const marker = new google.maps.Marker({{
                           position: {{ lat: location.latitude, lng: location.longitude }},
