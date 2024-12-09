@@ -16,8 +16,8 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 google_maps_api_key = os.getenv("GOOGLE_MAPS_API_KEY")
 
 # FAISS 및 데이터 로드
-faiss_index_path = "ppt.bin"
-csv_data_path = "ppt.csv"
+faiss_index_path = "ppt2.bin"
+csv_data_path = "ppt2.csv"
 
 index = faiss.read_index(faiss_index_path)
 metadata = pd.read_csv(csv_data_path)
